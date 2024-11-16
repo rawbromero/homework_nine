@@ -2,6 +2,9 @@ import express from "express"
 import mongoose from "mongoose"
 import bodyParser from "body-parser"
 import dotenv from "dotenv"
+import route from "./routes/employeeRoute.js"
+
+
 
 const app = express()
 app.use(bodyParser.json())
@@ -12,7 +15,7 @@ const PORT = process.env.PORT || 5000
 const MONGOURL = process.env.MONGO_URL
 
 mongoose.connect(MONGOURL).then( () => {
-    console.log("Database Connected Successfully")
+    console.log("Database Connected")
 
     app.listen(PORT, ()=> {
     
@@ -20,4 +23,6 @@ mongoose.connect(MONGOURL).then( () => {
      })
  }).catch( error => console.log(error))
 
+ 
+ 
   
